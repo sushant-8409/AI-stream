@@ -41,6 +41,11 @@ const imagekit = new ImageKit({
   privateKey: process.env.IMAGE_KIT_PRIVATE_KEY,
 });
 
+/** HTTP GET Request */
+app.get('/', (req, res) => {
+    res.status(201).json("Home GET Request");
+});
+
 app.get("/api/upload", (req, res) => {
   const result = imagekit.getAuthenticationParameters();
   res.send(result);
@@ -159,14 +164,14 @@ app.use((err, req, res, next) => {
 });
 
 // PRODUCTION
-app.use(express.static(path.join(__dirname, "../client/dist")));
-app.use(express.static(path.join(__dirname, "../client")));
+// app.use(express.static(path.join(__dirname, "../client/dist")));
+// app.use(express.static(path.join(__dirname, "../client")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
-  res.sendFile(path.join(__dirname, "../client", "index.html"));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
+//   res.sendFile(path.join(__dirname, "../client", "index.html"));
 
-});
+// });
 
 app.listen(port, () => {
   connect();
