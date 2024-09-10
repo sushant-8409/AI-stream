@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from "express";
-import cors from "cors";
+// import cors from "cors";
 import path from "path";
 import url, { fileURLToPath } from "url";
 import ImageKit from "imagekit";
@@ -16,12 +16,12 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.CLIENT_URL,
+//     credentials: true,
+//   })
+// );
 
 app.use(express.json());
 
