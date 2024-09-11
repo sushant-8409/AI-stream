@@ -18,22 +18,22 @@ const NewPrompt = ({ data }) => {
   });
 
   const chat = model.startChat({
-    // history: [
-    //   data?.history.map(({ role, parts }) => ({
-    //     role,
-    //     parts: [{ text: parts[0].text }],
-    //   })),
-    // ],
     history: [
-      {
-        role:"user",
-        parts:[{text:"hello, i have 2 dogs in my house."}],
-      },
-      {
-        role:"model",
-        parts: [{text: "great to meet you."}],
-      },
+      data?.history.map(({ role, parts }) => ({
+        role,
+        parts: [{ text: parts[0].text }],
+      })),
     ],
+    // history: [
+    //   {
+    //     role:"user",
+    //     parts:[{text:"hello, i have 2 dogs in my house."}],
+    //   },
+    //   {
+    //     role:"model",
+    //     parts: [{text: "great to meet you."}],
+    //   },
+    // ],
     generationConfig: {
       // maxOutputTokens: 100,
     },
