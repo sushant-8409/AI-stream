@@ -9,14 +9,24 @@ const ChatPage = () => {
   const path = useLocation().pathname;
   const chatId = path.split("/").pop();
 
-  const { isPending, error, data } = useQuery({
+  // const { isPending, error, data } = useQuery({
+  //   queryKey: ["chat", chatId],
+  //   queryFn: () =>
+  //     fetch(`${import.meta.env.VITE_API_URL}/api/chats/${chatId}`, {
+  //       credentials: "include",
+  //     }).then((res) => res.json()),
+  // });
+const { isPending, error, data } = useQuery({
     queryKey: ["chat", chatId],
-    queryFn: () =>
-      fetch(`${import.meta.env.VITE_API_URL}/api/chats/${chatId}`, {
+    queryFn: () => {
+      // Log the VITE_API_URL to the console before making the fetch request
+      console.log("vite api url",import.meta.env.VITE_API_URL);
+  
+      return fetch(`${import.meta.env.VITE_API_URL}/api/chats/${chatId}`, {
         credentials: "include",
-      }).then((res) => res.json()),
+      }).then((res) => res.json());
+    },
   });
-
   console.log(data);
 
   return (
