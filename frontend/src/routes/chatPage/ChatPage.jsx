@@ -20,7 +20,7 @@ const { isPending, error, data } = useQuery({
     queryKey: ["chat", chatId],
     queryFn: () => {
       // Log the VITE_API_URL to the console before making the fetch request
-      console.log("vite api url",https://one2sep-backend.onrender.com/);
+    //  console.log("vite api url",https://one2sep-backend.onrender.com/);
   
       // return fetch(`${import.meta.env.VITE_API_URL}/api/chats/${chatId}`, {
       return fetch(`https://one2sep-backend.onrender.com/api/chats/${chatId}`, {
