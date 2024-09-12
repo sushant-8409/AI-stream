@@ -50,7 +50,8 @@ const NewPrompt = ({ data }) => {
 
   const mutation = useMutation({
     mutationFn: () => {
-      return fetch(`${import.meta.env.VITE_API_URL}/api/chats/${data._id}`, {
+      // return fetch(`${import.meta.env.VITE_API_URL}/api/chats/${data._id}`, {
+      return fetch(`https://one2sep-backend.onrender.com/api/chats/${data._id}`, {
         method: "PUT",
         credentials: "include",
         headers: {
