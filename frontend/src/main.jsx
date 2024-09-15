@@ -9,6 +9,10 @@ import RootLayout from "./layouts/rootLayout/RootLayout";
 import DashboardLayout from "./layouts/dashboardLayout/DashboardLayout";
 import SignInPage from "./routes/signInPage/signInPage";
 import SignUpPage from "./routes/signUpPage/signUpPage";
+import { ClerkProvider } from '@clerk/clerk-sdk-react';
+
+// Fetch environment variables from VITE_ prefix
+const clerkFrontendApi = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 const router = createBrowserRouter([
   {
@@ -44,7 +48,14 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
+  // <React.StrictMode>
+  //   <RouterProvider router={router} />
+  // </React.StrictMode>
+   <React.StrictMode>
+    <ClerkProvider
+      frontendApi={clerkFrontendApi}
+    >
+      <RouterProvider router={router} />
+    </ClerkProvider>
   </React.StrictMode>
 );
