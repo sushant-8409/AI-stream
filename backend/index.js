@@ -25,6 +25,11 @@ app.use(
 
 app.use(express.json());
 
+// Initialize Clerk
+app.use(ClerkExpressRequireAuth({
+  apiKey: process.env.CLERK_SECRET_KEY,
+}));
+
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
