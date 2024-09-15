@@ -9,7 +9,8 @@ import RootLayout from "./layouts/rootLayout/RootLayout";
 import DashboardLayout from "./layouts/dashboardLayout/DashboardLayout";
 import SignInPage from "./routes/signInPage/signInPage";
 import SignUpPage from "./routes/signUpPage/signUpPage";
-import { ClerkProvider } from '@clerk/clerk-sdk-react';
+import { ClerkProvider } from '@clerk/clerk-react';
+
 
 // Fetch environment variables from VITE_ prefix
 const clerkFrontendApi = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
